@@ -101,7 +101,7 @@ namespace APIEquipment.Controllers
         }
 
         
-        [HttpPut("{id}")]
+        [HttpPut("UpdateEquipment/{id}")]
         public async Task<IActionResult> PutEquipment(int id, Equipment equipment)
         {
             if (id != equipment.Id)
@@ -131,7 +131,7 @@ namespace APIEquipment.Controllers
         }
 
         
-        [HttpPost]
+        [HttpPost("CreateEquipment")]
         public async Task<ActionResult<Equipment>> PostEquipment(Equipment equipment)
         {
             _context.Equipment.Add(equipment);
@@ -141,7 +141,7 @@ namespace APIEquipment.Controllers
         }
 
         
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteEquipment/{id}")]
         public async Task<ActionResult<Equipment>> DeleteEquipment(int id)
         {
             var equipment = await _context.Equipment.FindAsync(id);
